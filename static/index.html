@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101116"><title>EchoCache — Ask freely.</title>
+  <link rel="icon" type="image/svg+xml" href="/static/logo.svg?v=ca4d556ed7">
+  <link rel="stylesheet" href="/static/styles.css?v=5e6b7308da"><script src="/static/app.js?v=4c222e5314" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="brand" aria-label="EchoCache home"><span class="brand-mark"><img src="/static/logo.svg?v=ca4d556ed7" width="41" height="41" alt=""></span><span>EchoCache<span class="brand-sub">A clearer kind of support</span></span></a>
+    <div class="header-actions"><span id="connection" class="connection" role="status"><i></i>Checking API</span><button id="new-chat" class="button secondary"><span aria-hidden="true">＋</span> New chat</button></div>
+  </header>
+
+  <main class="workspace">
+    <section id="welcome" class="welcome">
+      <div class="eyebrow"><span></span> YOUR POLICY ASSISTANT</div>
+      <h1>Less searching.<br><span>More understanding.</span></h1>
+      <p>Ask about your store's policies, in your own words.<br>From returns to refunds, we'll help you find your next step.</p>
+      <div class="welcome-rule"><span>ONE CONVERSATION. A LITTLE MORE CLARITY.</span></div>
+    </section>
+
+    <p id="setup-notice" class="notice" hidden>Add your API key to <code>.env</code> and restart the server to start chatting.</p>
+    <section id="messages" class="messages" role="log" aria-live="polite" aria-relevant="additions" aria-label="Conversation"></section>
+
+    <div class="composer-wrap">
+      <form id="chat-form" class="composer">
+        <label for="message" class="sr-only">Your policy question</label>
+        <textarea id="message" rows="2" maxlength="4000" required placeholder="What's on your mind?"></textarea>
+        <div class="composer-bottom"><span class="composer-hint"><span aria-hidden="true">✦</span> Refunds, returns, shipping & more</span><button id="send" type="submit" aria-label="Send message">↑</button></div>
+      </form>
+      <div class="composer-caption"><span>Sample policies · No access to personal orders</span><span>Enter to send <kbd>↵</kbd></span></div>
+      <p id="error" class="error" role="alert" hidden></p>
+    </div>
+
+    <section class="utility-bar" aria-label="Cache controls">
+      <label class="cache-switch"><input id="use-cache" type="checkbox" checked><span class="switch-track"></span><span>Semantic cache</span></label>
+      <span id="database-status" class="database-status"><i></i>Checking database</span>
+      <button id="open-policies" class="text-button" aria-expanded="false" aria-controls="policy-library">Policy library <span aria-hidden="true">↗</span></button>
+    </section>
+
+    <div class="session-stats" aria-label="Session statistics"><span><strong id="stat-hits">0</strong> calls avoided</span><span><strong id="stat-entries">0</strong> saved answers</span><span><strong id="stat-calls">0</strong> model calls</span><button id="clear-cache" class="text-button">Clear cache</button></div>
+
+    <section id="policy-library" class="policy-library" hidden aria-label="Policy library"><div class="library-title"><div><p class="eyebrow">THE SOURCE OF OUR ANSWERS</p><h2>Policy library</h2></div><button id="close-policies" class="text-button" aria-label="Close policy library">Close ×</button></div><p class="library-notice">These are fictional sample policies. Replace policies.md with your store's rules.</p><div id="policy-content"></div></section>
+    <footer>Thoughtful answers. Fewer repeat calls.<span>ECHOCACHE / LOCAL WORKSPACE</span></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+**
+!Dockerfile
+!pyproject.toml
+!uv.lock
+!policies.md
+!app/
+!app/**
+!static/
+!static/**
+**/__pycache__/
+**/*.pyc
